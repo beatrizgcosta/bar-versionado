@@ -11,6 +11,7 @@ public class programa {
 
 		int c, r, e;
 		char sexo;
+		double cerveja, refri, espeto, couvert, ingresso, consumo, total;
 		
 		// LEITURA
 		
@@ -22,6 +23,37 @@ public class programa {
 		r = sc.nextInt();
 		System.out.printf("Quantidade de espetinhos: ");
 		e = sc.nextInt();
+		
+		// CALCULO
+		
+		if(sexo == 'F' || sexo == 'f' ) {
+			ingresso = 8.00;
+		}else {
+			ingresso = 10.00;
+		}
+		cerveja = c * 5.00;
+		refri = r * 3.00;
+		espeto = e * 7.00;
+		consumo = cerveja + refri + espeto;
+		if (consumo < 30.00){
+			couvert = 4.00;
+		}else {
+			couvert = 0.00;
+		}
+		total = consumo + ingresso + couvert;
+				
+		// EXIBIÇÃO
+				
+		System.out.printf("%nRELATÓRIO:%n");
+		System.out.printf("Consumo = R$ %.2f%n", consumo);
+		if(couvert == 4.00){	
+			System.out.printf("Couvert = R$ %.2f%n", couvert);
+		}else {
+			System.out.printf("Isento de Couvert%n");
+		}
+		System.out.printf("Ingresso = R$ %.2f%n%n", ingresso);	
+		System.out.printf("Valor a pagar = R$ %.2f%n", total);
+		sc.close();
 	}
 
 }
